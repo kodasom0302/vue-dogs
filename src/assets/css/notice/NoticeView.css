@@ -1,0 +1,80 @@
+/* 페이지 안내 제목
+공지사항 */
+#noticeTitle{
+    margin-left: 360px;
+    margin-bottom: -10px;
+}
+
+/* 위치 안내
+홈>공지사항 */
+#noticeLocationInformation{
+    margin-left: 330px;
+    margin-bottom: 40px;
+    display: flex;
+    list-style-type: none;
+}
+#noticeLocationInformation li:last-child:before{
+    content: ">";
+}
+
+/* 총 개수 */
+#totalNotice{
+    margin-left: 370px;
+    font-size: 14px;
+}
+
+/* 테이블 전체 */
+#noticeTable, #noticeTable th, #noticeTable td{
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+/* 테이블 첫 번째 헤드 */
+#firstTable{
+    width: 50px;
+    text-align: center;
+}
+
+/* 테이블 두 번째 헤드 */
+#secondTable{
+    width: 600px;
+}
+#noticeTable tbody #secondTable:hover{
+    text-decoration: underline;
+}
+
+/* 테이블 마지막 헤드 */
+#thirdTable{
+    width: 100px;
+    text-align: center;
+}
+
+/*테이블 홀수 칸*/
+#noticeTable tbody tr:nth-child(odd){
+    height: 37px;
+    background-color: aqua;
+}
+#noticeTable tbody tr:nth-child(odd):hover{
+    cursor: pointer;
+    background-color: aquamarine;
+}
+
+/*테이블 짝수 칸*/
+#noticeTable tbody tr:nth-child(even){
+    height: 37px;
+    background-color: pink;
+}
+#noticeTable tbody tr:nth-child(even):hover{
+    cursor: pointer;
+    background-color: palevioletred;
+}
+
+/* 페이징 */
+#noticePaging{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+}
