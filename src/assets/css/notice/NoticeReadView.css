@@ -1,23 +1,106 @@
+/* 전체 */
+#noticeReadContentAll{
+    padding: 20px 30px;
+}
+
+
+    
+/* 상단 전체 - 해당 글 정보 칸 */
+#readTopAll{
+    padding: 0px;
+    margin: 0px 0px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
 /* 제목 */
-#noticeReadTitle{}
+#noticeReadTitle{
+    padding: 10px 13px 0px 13px;
+    margin-bottom: 1px;
+    border-top: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 25px;
+    word-break: break-all;
+}
 
+
+
+/* 해당 글 정보 칸 밑에 줄 - 작성자~조회수 */
+#noticeReadTopBottom{
+    padding: 0px 13px 30px 13px;
+    margin-top: 1px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    line-height: 23px;
+    word-break: keep-all;  /*단어 기준으로 줄 바꿈*/
+}
+
+/* 작성자~실제 작성자 묶음 */
+#l{
+    float: left;
+}
 /* 작성자 */
-#noticeWriter{}
-
+#noticeWriter{
+    float: left;
+    margin-right: 7px;
+    color: #333;
+    font-weight: 500;
+    vertical-align: middle;
+}
 /* 해당 글 작성자 */
-#noticeReadWriter{}
+#noticeReadWriter{
+    float: left;
+    margin-right: 15px;
+    color: #777;
+    font-weight: normal;
+    vertical-align: middle;
+}
 
+/* 작성일~조회수 묶음 */
+#r{
+    float: right;
+}
 /* 작성일 */
-#noticeRegDate{}
-
+#noticeRegDate{
+    float: left;
+    margin-right: 7px;
+    color: #333;
+    font-weight: 500;
+    vertical-align: middle;
+}
 /* 해당 글 작성일 */
-#noticeReadRegDate{}
-
+#noticeReadRegDate{
+    float: left;
+    margin-right: 15px;
+    color: #777;
+    font-weight: normal;
+    vertical-align: middle;
+}
 /* 조회 */
-#noticeHit{}
-
+#noticeHit{
+    float: left;
+    margin-right: 7px;
+    color: #333;
+    font-weight: 500;
+    vertical-align: middle;
+}
 /* 해당 글 조회수 */
-#noticeReadHit{}
+#noticeReadHit{
+    float: left;
+    margin-right: 15px;
+    color: #777;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+
+
+/* 해당 글 내용 */
+#noticeReadContent{}
+
+/* 목록 버튼 - 리스트로 이동 */
+#btnGoList{}
 
 
 
@@ -25,11 +108,6 @@
 
 
 
-/*  */
-#noticeReadTitle{}
-
-/*  */
-#noticeReadTitle{}
 
 /*  */
 #noticeReadTitle{}

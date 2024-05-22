@@ -1,39 +1,41 @@
 <template>
     <div>
 
-        <AppHeader/>
+        <AppHeader />
 
 
 
-        <div>
-            
-            <h1>읽기 페이지</h1>
+        <div id="noticeReadContentAll">
 
-            <div>
-                <p id="noticeReadTitle">제목</p>
-                
-                <span id="noticeWriter">작성자</span>
-                <span id="noticeReadWriter">고다솜</span>
+            <p id="noticeReadTitle">제목</p>
 
-                <span id="noticeRegDate">작성일</span>
-                <span id="noticeReadRegDate">2024-05-22</span>
+            <div id="noticeReadTopBottom">
+                <div id="l">
+                    <span id="noticeWriter">작성자</span>
+                    <span id="noticeReadWriter">고다솜</span>
+                </div>
 
-                <span id="noticeHit">조회</span>
-                <span id="noticeReadHit">506회</span>
+                <div id="r">
+                    <span id="noticeRegDate">작성일</span>
+                    <span id="noticeReadRegDate">2024-05-22</span>
 
-                <!-- <span>댓글</span> -->
-                <!-- <span>건</span> -->
+                    <span id="noticeHit">조회</span>
+                    <span id="noticeReadHit">506회</span>
+                </div>
             </div>
 
-            <p>내용</p>
+            <!-- <span>댓글</span> -->
+            <!-- <span>건</span> -->
 
-            <button onclick="location.href='/'">목록</button>
-        
+            <p id="noticeReadContent">내용</p>
+
+            <button id="btnGoList" onclick="location.href='/'">목록</button>
+
         </div>
 
 
-        
-        <AppFooter/>
+
+        <AppFooter />
 
     </div>
 </template>
@@ -55,7 +57,7 @@ export default {
         return {};
     },
     methods: {},
-    created() {}
+    created() { }
 };
 </script>
 
