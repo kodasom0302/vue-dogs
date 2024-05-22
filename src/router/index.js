@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import NoticeView from '../views/NoticeView.vue'
+import NoticeListView from '../views/NoticeListView.vue'
+import NoticeReadView from '../views/NoticeReadView.vue'
 
 const routes = [
   {
     path: '/',
     name: '/',
-    component: NoticeView
+    component: NoticeListView
+  },
+  {
+    path: '/read',
+    name: '/read',
+    component: NoticeReadView
   },
 ]
 
