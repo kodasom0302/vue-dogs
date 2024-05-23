@@ -1,19 +1,30 @@
-#noticeWriteContentAll table th, table td{
+/* 전체 */
+#noticeWriteContentAll{
+    padding: 20px 30px;
+    width: 1000px;
     border: 1px solid black;
-    border-collapse: collapse;
 }
 
-th{background-color: green;}
+/* 테이블 전체 */
+#noticeWriteContentAll table{
+    margin-left: auto;
+    margin-right: auto;
+}
 
-thead{
+/* 테이블 헤드 */
+#noticeWriteContentAll thead{
     float: left;
 }
-tr, th{
+#noticeWriteContentAll th{
     display: block;
+    background-color: green;
 }
 
-tbody{
+/* 테이블 바디 */
+#noticeWriteContentAll tbody{
     display: block;
     overflow-x: hidden;
-    white-space: nowrap;
+}
+#noticeWriteContentAll td{
+    display: block;
 }

@@ -24,8 +24,10 @@
                             <td><textarea id="writeContent" placeholder="내용을 입력해 주세요" v-model="content"></textarea></td>
                         </tr>
                     </tbody>
-                    
+
                 </table>
+
+                <button type="submit">등록</button>
 
             </form>
 
