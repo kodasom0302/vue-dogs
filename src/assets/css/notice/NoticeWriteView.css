@@ -1,0 +1,19 @@
+#noticeWriteContentAll table th, table td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th{background-color: green;}
+
+thead{
+    float: left;
+}
+tr, th{
+    display: block;
+}
+
+tbody{
+    display: block;
+    overflow-x: hidden;
+    white-space: nowrap;
+}

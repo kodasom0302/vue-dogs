@@ -1,0 +1,45 @@
+/* 전체 */
+#noticeWriteContentAll{
+    padding: 10px;
+    margin: 20px 30px;
+    border: 1px solid black;
+}
+
+/* 제목 */
+#noticeWriteTitle{
+    float: left;
+}
+/* 제목 입력 칸 */
+#writeTitle{
+    float: right;
+    /* width: 100%; */
+}
+
+/* 내용 */
+#noticeWriteContent{
+    float: left;
+}
+/* 내용 입력 칸 */
+#writeContent{
+    float: right;
+    /* width: 100%;
+    height: 400px; */
+    resize: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 전체 */
+#noticeWriteContentAll{
+}
+
