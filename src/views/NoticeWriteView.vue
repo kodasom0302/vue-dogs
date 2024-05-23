@@ -27,7 +27,7 @@
 
                 </table>
 
-                <button type="submit">등록</button>
+                <button id="btnWrite" type="submit">등록</button>
 
             </form>
 

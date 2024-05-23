@@ -1,6 +1,8 @@
 /* 전체 */
 #noticeWriteContentAll{
     padding: 20px 30px;
+    margin-left: auto;
+    margin-right: auto;
     width: 1000px;
     border: 1px solid black;
 }
@@ -27,4 +29,11 @@
 }
 #noticeWriteContentAll td{
     display: block;
+}
+
+/* 등록 버튼 */
+#btnWrite{
+    margin-left: 500px;
+    text-align: center;
+    vertical-align: middle;
 }
