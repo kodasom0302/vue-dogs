@@ -15,11 +15,13 @@
             </ul>
 
             <span id="totalNotice">전체 2건</span>
+
+            <button id="btnAdd" @click="goToWritePage()">등록</button>
 <!-- 
             <span>정렬</span>
             <span>검색</span>
  -->
-            <table id="noticeTable" onclick="location.href='/read'">
+            <table id="noticeTable">
                 <thead>
                     <tr>
                         <th id="firstTable">번호</th>
@@ -33,10 +35,10 @@
                 </thead>
 
                 <tbody>
-                    <tr v-bind:key="i" v-for="noticeVo, i in nList">
-                        <td id="firstTable">{{ noticeVo.no }}</td>
-                        <td id="secondTable">{{ noticeVo.title }}</td>
-                        <td id="thirdTable">{{ noticeVo.name }}</td>
+                    <tr id="tr" v-bind:key="i" v-for="noticeVo, i in nList">
+                        <td id="firstTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.no }}</td>
+                        <td id="secondTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.title }}</td>
+                        <td id="thirdTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.name }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -56,7 +58,7 @@
 <script>
 import AppFooter from '@/components/AppFooter.vue';
 import AppHeader from '@/components/AppHeader.vue';
-import '@/assets/css/notice/2NoticeListView.css';
+import '@/assets/css/notice/NoticeListView.css';
 import axios from 'axios';
 
 export default {
@@ -97,6 +99,14 @@ export default {
                 console.log(error);
             });
         },
+        goToReadPage(no){
+            console.log(no+"번 글의 읽기 페이지로 이동");
+
+            location.href="/notice/read/"+no;
+        },
+        goToWritePage(){
+            location.href="/notice/write";
+        }
     },
     created() {
         this.getList();

@@ -1,14 +1,14 @@
 /* 페이지 안내 제목
 공지사항 */
 #noticeTitle{
-    margin-left: 365px;
+    margin-left: 230px;
     margin-bottom: -10px;
 }
 
 /* 위치 안내
 홈>공지사항 */
 #noticeLocationInformation{
-    margin-left: 330px;
+    margin-left: 195px;
     margin-bottom: 30px;
     display: flex;
     list-style-type: none;
@@ -20,7 +20,7 @@
 
 /* 총 개수 */
 #totalNotice{
-    margin-left: 370px;
+    margin-left: 235px;
     font-size: 14px;
 }
 
@@ -29,61 +29,43 @@
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    /* border: 1px solid black; */
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
     border-collapse: collapse;
+    font-size: 14px;
 }
 
+/*테이블 헤드 전체 */
 #noticeTable th{
-    background-color: #2c9251;
+    padding: 12px 0px;
 }
 
-/* 테이블 첫 번째 헤드 */
+/* 테이블 바디 전체 */
+#noticeTable td{
+    padding: 14px 10px;
+}
+
+/* 테이블 첫 번째 열 - 번호 */
 #firstTable{
     width: 50px;
     text-align: center;
 }
-#noticeTable thead #firstTable{
-    border-top-left-radius: 10px;
-}
 
-/* 테이블 두 번째 헤드 */
+/* 테이블 두 번째 열 - 제목 */
 #secondTable{
-    width: 610px;
-}
-#noticeTable tbody #secondTable:hover{
-    text-decoration: underline;
+    width: 830px;
 }
 
-/* 테이블 마지막 헤드 */
+/* 테이블 마지막 열 - 작성자 */
 #thirdTable{
     width: 100px;
     text-align: center;
 }
-#noticeTable thead #thirdTable{
-    border-top-right-radius: 10px;
-}
 
-/*테이블 홀수 칸*/
-#noticeTable tbody tr:nth-child(odd){
-    height: 37px;
-    /* background-color: pink; */
-}
-#noticeTable tbody tr:nth-child(odd):hover{
+/*테이블 각 바디 행*/
+#noticeTable tbody tr:hover{
     cursor: pointer;
-    /* background-color: palevioletred; */
-    background-color: rgb(228, 229, 230);
-}
-
-/*테이블 짝수 칸*/
-#noticeTable tbody tr:nth-child(even){
-    height: 37px;
-    background-color: #2c9251;
-    /* background-color: #2fa65b; */
-}
-#noticeTable tbody tr:nth-child(even):hover{
-    cursor: pointer;
-    background-color: #2fa65b;
-    /* background-color: #2c9251; */
+    background-color: rgb(245, 245, 245);
 }
 
 /* 페이징 */
