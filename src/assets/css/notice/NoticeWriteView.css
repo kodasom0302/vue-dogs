@@ -19,7 +19,15 @@
 }
 #noticeWriteContentAll th{
     display: block;
-    background-color: green;
+    background-color: rgb(208, 208, 208);
+    border-collapse: collapse;
+    font-weight: normal;
+}
+#noticeWriteContentAll th:first-child{
+    margin-top: 4px;
+}
+#noticeWriteContentAll th:last-child{
+    border-top: 1px solid black;
 }
 
 /* 테이블 바디 */

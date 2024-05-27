@@ -7,7 +7,10 @@
 
         <div id="noticeWriteContentAll">
 
-            <form action="" method="">
+            <form action="" method="" v-on:submit.prevent="writeNotice">
+
+                <input type="hidden" v-model="name">
+                <input type="hidden" v-model="date">
 
                 <table>
 
@@ -45,6 +48,7 @@
 import AppFooter from '@/components/AppFooter.vue';
 import AppHeader from '@/components/AppHeader.vue';
 import '@/assets/css/notice/NoticeWriteView.css';
+import axios from 'axios';
 
 export default {
     name: "NoticeWriteView",
@@ -53,9 +57,39 @@ export default {
         AppHeader
     },
     data() {
-        return {};
+        return {
+            noticeVo:{
+                title:"",
+                content:""
+            }
+        };
     },
-    methods: {},
+    methods: {
+        writeNotice(){
+            console.log("등록 버튼 클릭");
+
+            axios({
+                method: 'post', // put, post, delete                   
+                url: 'http://localhost:9010/api/notice/write',
+                headers: { "Content-Type": "application/json; charset=utf-8" 
+                , "Authorization": "Bearer " + this.$store.state.token
+                }, //전송타입
+                //params: guestbookVo, //get방식 파라미터로 값이 전달
+                data: this.noticeVo, //put, post, delete 방식 자동으로 JSON으로 변환 전달
+
+                responseType: 'json' //수신타입
+            }).then(response => {
+                console.log(response); //수신데이타
+
+                if(response.data.result=="success"){
+                    this.$router.push("/");
+                }
+
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+    },
     created() {}
 };
 </script>
