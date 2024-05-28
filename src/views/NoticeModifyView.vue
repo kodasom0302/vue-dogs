@@ -26,8 +26,10 @@
 
                 <div id="formGroup">
                     <label for="noticeModifyContent">내용</label>
-                    <textarea id="noticeModifyContent" placeholder="내용을 입력해 주세요" v-model="noticeVo.content"></textarea>
+                    <textarea id="noticeModifyContent" name="content" placeholder="내용을 입력해 주세요" v-model="noticeVo.content"></textarea>
                 </div>
+
+                <button type="button" @click="goToRead">취소</button>
 
                 <button type="submit">수정</button>
                 
@@ -101,19 +103,24 @@ export default {
             }).then(response => {
                 console.log(response); //수신데이타
 
-                if(response.data.result=="success"){
-                    console.log("성공");
+                this.$router.go(-1);
 
-                    this.$router.push("/notice/read/"+this.$route.params.no);
-                }else{
-                    console.log(response.data.message);
+                // if(response.data.result=="success"){
+                //     console.log("성공");
 
-                    this.$router.push("/");
-                }
+                //     this.$router.push("/notice/read/"+this.$route.params.no);
+                // }else{
+                //     console.log(response.data.message);
+
+                //     this.$router.push("/");
+                // }
                 
             }).catch(error => {
                 console.log(error);
             });
+        },
+        goToRead(){
+            location.href="/notice/read/"+this.noticeVo.no;
         }
     },
     created() {

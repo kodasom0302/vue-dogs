@@ -30,6 +30,7 @@
 
                 </table>
 
+                <button id="btnWrite" @click="goToList">취소</button>
                 <button id="btnWrite" type="submit">등록</button>
 
             </form>
@@ -92,6 +93,9 @@ export default {
             }).catch(error => {
                 console.log(error);
             });
+        },
+        goToList(){
+            location.href="/";
         }
     },
     created() {}

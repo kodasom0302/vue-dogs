@@ -1,26 +1,30 @@
 <template>
     <div>
 
-        <AppHeader/>
+        <AppHeader />
 
 
 
-        <div>
+        <div id="listContentAll">
 
             <h1 id="noticeTitle">공지사항</h1>
-            
+
             <ul id="noticeLocationInformation">
                 <li>홈</li>
                 <li>공지사항</li>
             </ul>
 
-            <span id="totalNotice">전체 2건</span>
+            <div id="topContentGroup">
 
-            <button id="btnAdd" @click="goToWritePage()">등록</button>
-<!-- 
-            <span>정렬</span>
-            <span>검색</span>
- -->
+                <span id="totalNotice">전체 {{ noticeVo.total }}건</span>
+
+                <button id="btnAdd" @click="goToWritePage()">등록</button>
+                <!-- 
+                <span>정렬</span>
+                <span>검색</span>
+                -->
+            </div>
+
             <table id="noticeTable">
                 <thead>
                     <tr>
@@ -44,12 +48,12 @@
             </table>
 
             <p id="noticePaging">- 1 2 3 4 5 -</p>
-            
+
         </div>
 
 
-        
-        <AppFooter/>
+
+        <AppFooter />
 
     </div>
 </template>
@@ -69,12 +73,13 @@ export default {
     },
     data() {
         return {
-            nList:[],
-            noticeVo:{
+            nList: [],
+            noticeVo: {
                 no: "",
                 title: "",
                 name: "",
-                regDate: ""
+                regDate: "",
+                total: ""
             }
         };
     },
@@ -93,19 +98,19 @@ export default {
             }).then(response => {
                 console.log(response.data); //수신데이타
 
-                this.nList=response.data;
+                this.nList = response.data;
 
             }).catch(error => {
                 console.log(error);
             });
         },
-        goToReadPage(no){
-            console.log(no+"번 글의 읽기 페이지로 이동");
+        goToReadPage(no) {
+            console.log(no + "번 글의 읽기 페이지로 이동");
 
-            location.href="/notice/read/"+no;
+            location.href = "/notice/read/" + no;
         },
-        goToWritePage(){
-            location.href="/notice/write";
+        goToWritePage() {
+            location.href = "/notice/write";
         }
     },
     created() {
