@@ -21,7 +21,7 @@ const routes = [
     component: NoticeWriteView
   },
   {
-    path: '/notice/modify',
+    path: '/notice/modify/:no',
     name: '/modify',
     component: NoticeModifyView
   },

@@ -83,6 +83,10 @@ export default {
 
                 if(response.data.result=="success"){
                     this.$router.push("/");
+                }else{
+                    alert("로그인이 필요합니다.");
+
+                    this.$router.push("#");
                 }
 
             }).catch(error => {
