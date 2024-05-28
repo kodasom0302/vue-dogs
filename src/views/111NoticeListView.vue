@@ -14,11 +14,11 @@
                 <li>공지사항</li>
             </ul>
 
-            <div> <!-- v-bind:key="i" v-for="noticeVo, i in nList" -->
+            <div> <!-- v-bind:key="i" v-for="noticeVo, i in nList"-->
 
                 <div id="topContentGroup">
 
-                    <span id="totalNotice">전체 2건</span>
+                    <span id="totalNotice">전체 {{ noticeVo.total }}건</span>
 
                     <button id="btnAdd" @click="goToWritePage()">등록</button>
                     <!-- 
@@ -49,9 +49,11 @@
                     </tbody>
                 </table>
 
-                <span v-on:click="noticeVo.next == true">next</span>
-                <span id="noticePaging">- 1 2 3 4 5 -</span>
-                <router-link v-model="noticeVo.endPageBtnNo"></router-link>
+                <span id="noticePaging" v-if="prev!=false" v-on:click="prevPage">prev</span>
+                <span id="noticePaging" v-bind:key="index" v-for="i, index in endPageBtnNo-startPageBtnNo+1">
+                    <a v-on:click.prevent="list(startPageBtnNo+i)" href="">{{ startPageBtnNo+i-1 }}</a>
+                </span>
+                <span id="noticePaging" v-if="next!=false" v-on:click="nextPage">next</span>
 
             </div>
 
@@ -86,16 +88,25 @@ export default {
                 name: "",
                 regDate: "",
                 total: "",
-                endPageBtnNo: "",
-                next: "",
-                prev: "",
-                startPageBtnNo: ""
+                crtPage:1
             },
+            startPageBtnNo:0,
+            endPageBtnNo:0,
+            next:"",
+            prev:""
         };
     },
     methods: {
-        getList() {
+        getList(list) {
             console.log("리스트 불러오기");
+
+            if(this.noticeVo.crtPage==1){
+                this.noticeVo.crtPage=1;
+            }else if(this.noticeVo.crtPage<1){
+                this.noticeVo.crtPage=1;
+            }else{
+                this.noticeVo.crtPage=list-1;
+            }
 
             axios({
                 method: 'get', // put, post, delete                   

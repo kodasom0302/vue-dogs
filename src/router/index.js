@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import NoticeListView from '../views/NoticeListView.vue'
+import NoticeListView from '../views/111NoticeListView.vue'
 import NoticeReadView from '../views/NoticeReadView.vue'
 import NoticeWriteView from '../views/NoticeWriteView.vue'
 import NoticeModifyView from '../views/NoticeModifyView.vue'
