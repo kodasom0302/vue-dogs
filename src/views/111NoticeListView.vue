@@ -18,7 +18,7 @@
 
                 <div id="topContentGroup">
 
-                    <span id="totalNotice">전체 {{ noticeVo.total }}건</span>
+                    <span>전체 <input id="totalNotice" type="text">건</span>
 
                     <button id="btnAdd" @click="goToWritePage()">등록</button>
                     <!-- 
@@ -49,11 +49,13 @@
                     </tbody>
                 </table>
 
-                <span id="noticePaging" v-if="prev!=false" v-on:click="prevPage">prev</span>
+                <span id="noticePaging" v-if="prev!=false" v-on:click="prevPage">이전</span>
+
                 <span id="noticePaging" v-bind:key="index" v-for="i, index in endPageBtnNo-startPageBtnNo+1">
                     <a v-on:click.prevent="list(startPageBtnNo+i)" href="">{{ startPageBtnNo+i-1 }}</a>
                 </span>
-                <span id="noticePaging" v-if="next!=false" v-on:click="nextPage">next</span>
+
+                <span id="noticePaging" v-if="next!=false" v-on:click="nextPage">다음</span>
 
             </div>
 
@@ -82,48 +84,66 @@ export default {
     data() {
         return {
             nList: [],
-            noticeVo: {
-                no: "",
-                title: "",
-                name: "",
-                regDate: "",
-                total: "",
-                crtPage:1
+            noticeVo:{
+                crtPage:1,
+                keyword:""
             },
             startPageBtnNo:0,
             endPageBtnNo:0,
+            totalCnt:0,
             next:"",
-            prev:""
+            prev:"",
         };
     },
     methods: {
         getList(list) {
             console.log("리스트 불러오기");
 
-            if(this.noticeVo.crtPage==1){
-                this.noticeVo.crtPage=1;
-            }else if(this.noticeVo.crtPage<1){
+            if(this.noticeVo.crtPage<=1){
                 this.noticeVo.crtPage=1;
             }else{
                 this.noticeVo.crtPage=list-1;
             }
 
+            console.log("-----------"+this.noticeVo.crtPage+"-----------");
+
             axios({
-                method: 'get', // put, post, delete                   
+                method: 'post', // put, post, delete                   
                 url: 'http://localhost:9010/api/notice/list2',
                 headers: { "Content-Type": "application/json; charset=utf-8" }, //전송타입
                 //params: guestbookVo, //get방식 파라미터로 값이 전달
-                //data: guestbookVo, //put, post, delete 방식 자동으로 JSON으로 변환 전달
+                data: this.noticeVo, //put, post, delete 방식 자동으로 JSON으로 변환 전달
 
                 responseType: 'json' //수신타입
             }).then(response => {
                 console.log(response.data); //수신데이타
 
                 this.nList = response.data.boardList;
+                this.startPageBtnNo=response.data.startPageBtnNo;
+                this.endPageBtnNo=response.data.endPageBtnNo;
+                this.prev=response.data.prev;
+                this.next=response.data.next;
+                this.totalCnt=response.data.totalCnt;
 
             }).catch(error => {
                 console.log(error);
             });
+        },
+        list(page) {
+            this.noticeVo.crtPage=page;
+            this.nList(this.noticeVo.crtPage);
+        },
+        prevPage() {
+            if(this.prev==false){
+                console.log(this.noticeVo.crtPage);
+                this.getList(this.noticeVo.crtPage);
+            }
+        },
+        nextPage() {
+            if(this.next==true) {
+                this.noticeVo.crtPage=this.noticeVo.crtPage+6;
+                this.getList(this.noticeVo.crtPage);
+            }
         },
         goToReadPage(no) {
             console.log(no + "번 글의 읽기 페이지로 이동");
@@ -132,7 +152,7 @@ export default {
         },
         goToWritePage() {
             location.href = "/notice/write";
-        }
+        },
     },
     created() {
         this.getList();
