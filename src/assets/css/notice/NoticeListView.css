@@ -43,6 +43,12 @@
     float: right;
 }
 
+/* 검색 키워드 입력창 */
+#searchBox{
+    margin-right: 56px;
+    float: right;
+}
+
 /* 테이블 전체 */
 #noticeTable, #noticeTable th, #noticeTable td{
     margin-top: 10px;

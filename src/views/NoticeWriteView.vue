@@ -23,8 +23,8 @@
 
                     <tbody>
                         <tr>
-                            <td><input id="writeTitle" type="text" placeholder="제목을 입력해 주세요" v-model="title"></td>
-                            <td><textarea id="writeContent" placeholder="내용을 입력해 주세요" v-model="content"></textarea></td>
+                            <td><input id="writeTitle" type="text" placeholder="제목을 입력해 주세요" v-model="noticeVo.title"></td>
+                            <td><textarea id="writeContent" placeholder="내용을 입력해 주세요" v-model="noticeVo.content"></textarea></td>
                         </tr>
                     </tbody>
 
@@ -70,7 +70,7 @@ export default {
             console.log("등록 버튼 클릭");
 
             axios({
-                method: 'post', // put, post, delete                   
+                method: 'put', // put, post, delete                   
                 url: 'http://localhost:9010/api/notice/write',
                 headers: { "Content-Type": "application/json; charset=utf-8" 
                 , "Authorization": "Bearer " + this.$store.state.token
