@@ -6,24 +6,24 @@ import NoticeModifyView from '../views/NoticeModifyView.vue'
 
 const routes = [
   {
-    path: '/',
-    name: '/list',
+    path: '/announcements',
+    name: 'noticeList',
     component: NoticeListView
   },
   {
-    path: '/notice/read/:no',
-    name: '/read',
+    path: '/noticeModify/:no',
+    name: 'noticeModify',
+    component: NoticeModifyView
+  },
+  {
+    path: '/noticeRead/:no',
+    name: 'noticeRead',
     component: NoticeReadView
   },
   {
-    path: '/notice/write',
-    name: '/write',
+    path: '/noticeWrite',
+    name: 'noticeWrite',
     component: NoticeWriteView
-  },
-  {
-    path: '/notice/modify/:no',
-    name: '/modify',
-    component: NoticeModifyView
   },
 ]
 
