@@ -45,7 +45,7 @@
                         <tr id="tr">
                             <td id="firstTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.no }}</td>
                             <td id="secondTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.title }}</td>
-                            <td id="thirdTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.name }}</td>
+                            <td id="thirdTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.uName }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -94,6 +94,7 @@ export default {
             totalCnt:0,
             next:"",
             prev:"",
+            keyword:""
         };
     },
     methods: {
@@ -106,11 +107,9 @@ export default {
                 this.noticeVo.crtPage=list-1;
             }
 
-            console.log("-----------"+this.noticeVo.crtPage+"-----------");
-
             axios({
                 method: 'post', // put, post, delete                   
-                url: 'http://localhost:9010/api/notice/list2',
+                url: 'http://localhost:9010/api/notice/list',
                 headers: { "Content-Type": "application/json; charset=utf-8" }, //전송타입
                 //params: guestbookVo, //get방식 파라미터로 값이 전달
                 data: this.noticeVo, //put, post, delete 방식 자동으로 JSON으로 변환 전달
@@ -120,10 +119,15 @@ export default {
                 console.log(response.data); //수신데이타
 
                 this.nList = response.data.nList;
+
                 this.startPageBtnNo=response.data.startPageBtnNo;
+
                 this.endPageBtnNo=response.data.endPageBtnNo;
+
                 this.prev=response.data.prev;
+
                 this.next=response.data.next;
+
                 this.totalCnt=response.data.totalCnt;
 
             }).catch(error => {
@@ -132,30 +136,34 @@ export default {
         },
         list(page) {
             this.noticeVo.crtPage=page;
-            this.nList(this.noticeVo.crtPage);
+            
+            this.getList(this.noticeVo.crtPage);
         },
         prevPage() {
             if(this.prev==false){
                 console.log(this.noticeVo.crtPage);
+
                 this.getList(this.noticeVo.crtPage);
             }
         },
         nextPage() {
             if(this.next==true) {
                 this.noticeVo.crtPage=this.noticeVo.crtPage+6;
+                
                 this.getList(this.noticeVo.crtPage);
             }
         },
         goToReadPage(no) {
             console.log(no + "번 글의 읽기 페이지로 이동");
 
-            location.href = "/notice/read/" + no;
+            location.href = "/noticeRead/" + no;
         },
         goToWritePage() {
-            location.href = "/notice/write";
+            location.href = "/noticeWrite";
         },
         search() {
             this.noticeVo.crtPage=1;
+
             this.getList();
         }
     },
