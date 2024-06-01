@@ -120,7 +120,7 @@ export default {
             });
         },
         goToRead(){
-            location.href="/notice/read/"+this.noticeVo.no;
+            location.href="/noticeRead/"+this.noticeVo.no;
         }
     },
     created() {
