@@ -12,7 +12,7 @@
             <div id="noticeReadTopBottom">
                 <div id="leftInformation">
                     <span id="noticeWriter">작성자</span>
-                    <span id="noticeReadWriter">{{ noticeVo.name }}</span>
+                    <span id="noticeReadWriter">{{ noticeVo.uName }}</span>
                 </div>
 
                 <div id="rightInformation">
@@ -29,7 +29,7 @@
 
             <p id="noticeReadContent">{{ noticeVo.content }}</p>
 
-                <button id="btnGoToList" onclick="location.href='/'">목록</button>
+                <button id="btnGoToList" onclick="location.href='/announcements'">목록</button>
                 <button id="btnDelete" @click="deleteNotice(noticeVo.no)">삭제</button>
                 <button id="btnModify" @click="goToModifyPage(noticeVo.no)">수정</button>
 
@@ -103,7 +103,7 @@ export default {
 
                 console.log("삭제 성공");
 
-                location.href="/"
+                location.href="/announcements"
 
             }).catch(error => {
                 console.log(error);
@@ -112,7 +112,7 @@ export default {
         goToModifyPage(no){
             console.log("수정폼으로 이동");
 
-            location.href="/notice/modify/"+no;
+            location.href="/noticeModify/"+no;
         }
     },
     created() {
