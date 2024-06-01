@@ -9,9 +9,6 @@
 
             <form action="" method="" v-on:submit.prevent="writeNotice">
 
-                <input type="hidden" v-model="name">
-                <input type="hidden" v-model="date">
-
                 <table>
 
                     <thead>
@@ -69,6 +66,9 @@ export default {
         writeNotice(){
             console.log("등록 버튼 클릭");
 
+            console.log(this.$store.state.token)
+            console.log(this.noticeVo)
+
             axios({
                 method: 'put', // put, post, delete                   
                 url: 'http://localhost:9010/api/notice/write',
@@ -83,7 +83,7 @@ export default {
                 console.log(response); //수신데이타
 
                 if(response.data.result=="success"){
-                    this.$router.push("/");
+                    this.$router.push("/announcements");
                 }else{
                     alert("로그인이 필요합니다.");
 
@@ -95,7 +95,7 @@ export default {
             });
         },
         goToList(){
-            location.href="/";
+            location.href="/announcements";
         }
     },
     created() {}
