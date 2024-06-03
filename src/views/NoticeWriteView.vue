@@ -58,7 +58,8 @@ export default {
         return {
             noticeVo:{
                 title:"",
-                content:""
+                content:"",
+                uNo:1
             }
         };
     },
@@ -66,14 +67,14 @@ export default {
         writeNotice(){
             console.log("등록 버튼 클릭");
 
-            console.log(this.$store.state.token)
-            console.log(this.noticeVo)
+            console.log("---------"+this.noticeVo.title)
+            console.log("---------"+this.noticeVo.content)
 
             axios({
                 method: 'put', // put, post, delete                   
                 url: 'http://localhost:9010/api/notice/write',
                 headers: { "Content-Type": "application/json; charset=utf-8" 
-                , "Authorization": "Bearer " + this.$store.state.token
+                , "Authorization": "Bearer "
                 }, //전송타입
                 //params: guestbookVo, //get방식 파라미터로 값이 전달
                 data: this.noticeVo, //put, post, delete 방식 자동으로 JSON으로 변환 전달
@@ -81,13 +82,19 @@ export default {
                 responseType: 'json' //수신타입
             }).then(response => {
                 console.log(response); //수신데이타
-
+/*
                 if(response.data.result=="success"){
                     this.$router.push("/announcements");
                 }else{
                     alert("로그인이 필요합니다.");
 
                     this.$router.push("#");
+                }
+*/
+                if(response.data>0){
+                    this.$router.push("/announcements");
+                }else{
+                    console.log("fail")
                 }
 
             }).catch(error => {
