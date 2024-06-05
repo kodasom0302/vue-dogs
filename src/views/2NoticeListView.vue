@@ -24,8 +24,9 @@
                     <!-- 
                     <span>정렬</span>
                     -->
-                    <input id="searchBox" type="text" placeholder="검색" v-model="noticeVo.keyword" v-on:keyup.enter="search">
-                    <!-- 검색 버튼 -->
+                    <input id="searchBox" type="search" placeholder="검색" v-model="noticeVo.keyword" v-on:keyup.enter="search">
+                    <img id="searchImg" src="https://cdn-icons-png.flaticon.com/512/71/71403.png" v-on:click="search">
+                    
                 </div>
 
                 <table id="noticeTable">
@@ -50,13 +51,13 @@
                     </tbody>
                 </table>
 
-                <span id="noticePaging" v-if="prev!=false" v-on:click="prevPage">이전</span>
-
-                <span id="noticePaging" v-bind:key="index" v-for="i, index in endPageBtnNo-startPageBtnNo+1">
-                    <a v-on:click.prevent="list(startPageBtnNo+i)" href="">{{ startPageBtnNo+i-1 }}</a>
-                </span>
-
-                <span id="noticePaging" v-if="next!=false" v-on:click="nextPage">다음</span>
+                <div id="pagingAll">
+                    <span id="noticePaging" v-if="prev != false" v-on:click="prevPage">&lt;</span>
+                    <span id="noticePaging" v-bind:key="index" v-for="i, index in endPageBtnNo - startPageBtnNo + 1">
+                        <a v-on:click.prevent="list(startPageBtnNo + i)" href="">{{ startPageBtnNo + i - 1 }}</a>
+                    </span>
+                    <span id="noticePaging" v-if="next != false" v-on:click="nextPage">&gt;</span>
+                </div>
 
             </div>
 
@@ -85,26 +86,26 @@ export default {
     data() {
         return {
             nList: [],
-            noticeVo:{
-                crtPage:1,
-                keyword:""
+            noticeVo: {
+                crtPage: 1,
+                keyword: ""
             },
-            startPageBtnNo:0,
-            endPageBtnNo:0,
-            totalCnt:0,
-            next:"",
-            prev:"",
-            keyword:"",
+            startPageBtnNo: 0,
+            endPageBtnNo: 0,
+            totalCnt: 0,
+            next: "",
+            prev: "",
+            keyword: "",
         };
     },
     methods: {
         getList(list) {
             console.log("리스트 불러오기");
 
-            if(this.noticeVo.crtPage<=1){
-                this.noticeVo.crtPage=1;
-            }else{
-                this.noticeVo.crtPage=list-1;
+            if (this.noticeVo.crtPage <= 1) {
+                this.noticeVo.crtPage = 1;
+            } else {
+                this.noticeVo.crtPage = list - 1;
             }
 
             axios({
@@ -120,36 +121,36 @@ export default {
 
                 this.nList = response.data.nList;
 
-                this.startPageBtnNo=response.data.startPageBtnNo;
+                this.startPageBtnNo = response.data.startPageBtnNo;
 
-                this.endPageBtnNo=response.data.endPageBtnNo;
+                this.endPageBtnNo = response.data.endPageBtnNo;
 
-                this.prev=response.data.prev;
+                this.prev = response.data.prev;
 
-                this.next=response.data.next;
+                this.next = response.data.next;
 
-                this.totalCnt=response.data.totalCnt;
+                this.totalCnt = response.data.totalCnt;
 
             }).catch(error => {
                 console.log(error);
             });
         },
         list(page) {
-            this.noticeVo.crtPage=page;
-            
+            this.noticeVo.crtPage = page;
+
             this.getList(this.noticeVo.crtPage);
         },
         prevPage() {
-            if(this.prev==false){
-                console.log(this.noticeVo.crtPage);
+            if (this.prev == true) {
+                this.noticeVo.crtPage = this.noticeVo.crtPage - 6;
 
                 this.getList(this.noticeVo.crtPage);
             }
         },
         nextPage() {
-            if(this.next==true) {
-                this.noticeVo.crtPage=this.noticeVo.crtPage+6;
-                
+            if (this.next == true) {
+                this.noticeVo.crtPage = this.noticeVo.crtPage + 6;
+
                 this.getList(this.noticeVo.crtPage);
             }
         },
@@ -162,7 +163,7 @@ export default {
             location.href = "/noticeWrite";
         },
         search() {
-            this.noticeVo.crtPage=1;
+            this.noticeVo.crtPage = 1;
 
             this.getList();
         }
