@@ -12,7 +12,7 @@
             <div id="noticeReadTopBottom">
                 <div id="leftInformation">
                     <span id="noticeWriter">작성자</span>
-                    <span id="noticeReadWriter">{{ noticeVo.uName }}</span>
+                    <span id="noticeReadWriter">{{ noticeVo.uname }}</span>
                 </div>
 
                 <div id="rightInformation">
@@ -60,10 +60,9 @@ export default {
             noticeVo:{
                 no:this.$route.params.no,
                 title:"",
-                name:"",
+                uname:"",
                 regDate:"",
-                content:"",
-                uName:this.$store.state.authUser.uName
+                content:""
             }
         };
     },
@@ -75,14 +74,14 @@ export default {
                 method: 'get', // put, post, delete                   
                 url: 'http://localhost:9010/api/notice/read/'+this.noticeVo.no,
                 headers: { "Content-Type": "application/json; charset=utf-8" }, //전송타입
-                params: {uName:this.noticeVo.uName}, //get방식 파라미터로 값이 전달
+                //params: {uName:this.noticeVo.uName}, //get방식 파라미터로 값이 전달
                 //data: guestbookVo, //put, post, delete 방식 자동으로 JSON으로 변환 전달
 
                 responseType: 'json' //수신타입
             }).then(response => {
                 console.log(response); //수신데이타
 
-                this.noticeVo=response.data;
+                this.noticeVo=response.data.apiData;
 
             }).catch(error => {
                 console.log(error);

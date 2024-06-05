@@ -16,7 +16,7 @@
 
                 <div id="formGroup">
                     <span>작성자</span>
-                    <span>{{ noticeVo.name }}</span>
+                    <span>{{ noticeVo.uname }}</span>
                 </div>
 
                 <div id="formGroup">
@@ -62,7 +62,7 @@ export default {
             noticeVo:{
                 no:this.$route.params.no,
                 title:"",
-                name:"",
+                uname:"",
                 regDate:"",
                 content:""
             }
@@ -83,7 +83,7 @@ export default {
             }).then(response => {
                 console.log(response); //수신데이타
 
-                this.noticeVo=response.data;
+                this.noticeVo=response.data.apiData;
 
             }).catch(error => {
                 console.log(error);

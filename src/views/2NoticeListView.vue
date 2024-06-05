@@ -45,7 +45,7 @@
                         <tr id="tr">
                             <td id="firstTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.no }}</td>
                             <td id="secondTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.title }}</td>
-                            <td id="thirdTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.uName }}</td>
+                            <td id="thirdTable" @click="goToReadPage(noticeVo.no)">{{ noticeVo.uname }}</td>
                         </tr>
                     </tbody>
                 </table>
