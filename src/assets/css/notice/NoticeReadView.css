@@ -87,21 +87,26 @@
 
 /* 해당 글 내용 */
 #noticeReadContent{
-    height: fit-content;
     padding: 0px 13px 10px 13px;
+    height: 300px;
     border-bottom: 1px solid #ddd;
     font-size: 15px;
     font-weight: normal;
+    vertical-align: middle;
+    overflow-y: auto;
+}
+
+#btnGroup{
+    margin-top: 20px;
     vertical-align: middle;
 }
 
 /* 목록 버튼 - 리스트로 이동 */
 #btnGoToList{
     padding: 7px 15px;
-    margin-right: 340px;
     cursor: pointer;
     text-align: center;
-    vertical-align: middle;
+    float: left;
 }
 
 /* 삭제 버튼 */
@@ -110,7 +115,6 @@
     margin-right: 20px;
     cursor: pointer;
     text-align: center;
-    vertical-align: middle;
 }
 
 /* 수정 버튼 - 수정폼으로 이동 */
@@ -118,14 +122,4 @@
     padding: 7px 15px;
     cursor: pointer;
     text-align: center;
-    vertical-align: middle;
 }
-
-
-
-
-
-
-/*  */
-#noticeReadTitle{}
-
