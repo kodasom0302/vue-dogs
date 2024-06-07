@@ -29,9 +29,11 @@
 
             <p id="noticeReadContent">{{ noticeVo.content }}</p>
 
+            <div id="btnGroup">
                 <button id="btnGoToList" onclick="location.href='/announcements'">목록</button>
                 <button id="btnDelete" @click="deleteNotice(noticeVo.no)">삭제</button>
                 <button id="btnModify" @click="goToModifyPage(noticeVo.no)">수정</button>
+            </div>
 
         </div>
 
