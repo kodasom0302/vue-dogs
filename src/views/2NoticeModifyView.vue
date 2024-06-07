@@ -7,33 +7,41 @@
 
         <div>
 
-            <form action="" method="" v-on:submit.prevent="modifyNotice">
+            <div id="modifyFormContentAll">
 
-                <div id="formGroup">
-                    <label for="noticeModifyTitle">제목</label>
-                    <input id="noticeModifyTitle" type="text" name="title" placeholder="제목을 입력해 주세요" v-model="noticeVo.title">
-                </div>
+                <form action="" method="" v-on:submit.prevent="modifyNotice">
 
-                <div id="formGroup">
-                    <span>작성자</span>
-                    <span>{{ noticeVo.uname }}</span>
-                </div>
+                    <div id="formGroup">
+                        <label id="titleGroup" for="noticeModifyTitle">제목</label>
+                        <input id="noticeModifyTitle" type="text" name="title" placeholder="제목을 입력해 주세요" v-model="noticeVo.title">
+                    </div>
 
-                <div id="formGroup">
-                    <span>작성일</span>
-                    <span>{{ noticeVo.regDate }}</span>
-                </div>
+                    <div id="notModifyPart">
+                        <div class="writerGroup">
+                            <span id="titleGroup">작성자</span>
+                            <span id="noModifyInfo">{{ noticeVo.uname }}</span>
+                        </div>
 
-                <div id="formGroup">
-                    <label for="noticeModifyContent">내용</label>
-                    <textarea id="noticeModifyContent" name="content" placeholder="내용을 입력해 주세요" v-model="noticeVo.content"></textarea>
-                </div>
+                        <div class="dateGroup">
+                            <span id="titleGroup">작성일</span>
+                            <span id="noModifyInfo">{{ noticeVo.regDate }}</span>
+                        </div>
+                    </div>
 
-                <button type="button" @click="goToRead">취소</button>
+                    <div id="formGroup" class="contentAll">
+                        <label id="titleGroup" for="noticeModifyContent">내용</label>
+                        <textarea id="noticeModifyContent" name="content" placeholder="내용을 입력해 주세요" v-model="noticeVo.content"></textarea>
+                    </div>
 
-                <button type="submit">수정</button>
-                
-            </form>
+                    <div id="btnGroup">
+                        <button id="cancelBtn" type="button" @click="goToRead">취소</button>
+
+                        <button id="modifyBtn" type="submit">수정</button>
+                  </div>
+
+                </form>
+
+            </div>
 
         </div>
 
@@ -48,7 +56,7 @@
 <script>
 import AppFooter from '@/components/AppFooter.vue';
 import AppHeader from '@/components/AppHeader.vue';
-import '@/assets/css/notice/NoticeListView.css';
+import '@/assets/css/notice/NoticeModifyView.css';
 import axios from 'axios';
 
 export default {
