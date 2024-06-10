@@ -29,8 +29,10 @@
 
                 <input type="hidden" v-model="this.$store.state.authUser.userName">
 
-                <button id="btnWrite" @click="goToList">취소</button>
-                <button id="btnWrite" type="submit">등록</button>
+                <div id="btnGroup">
+                    <button id="btnRemove" type="button" @click="goToList">취소</button>
+                    <button id="btnWrite" type="submit">등록</button>
+                </div>
 
             </form>
 
