@@ -20,7 +20,7 @@
 
                     <span id="totalNotice">전체 {{ totalCnt }}건</span>
 
-                    <button id="btnAdd" @click="goToWritePage()">등록</button>
+                    <button id="btnAdd" v-if="true" @click="goToWritePage()">등록</button>
                     <!-- 
                     <span>정렬</span>
                     -->
@@ -60,6 +60,7 @@
                 </div>
 
             </div>
+            <!-- <p>authUser: {{ authUser }}</p> -->
 
         </div>
 
@@ -99,6 +100,23 @@ export default {
         };
     },
     methods: {
+        isAuthName() {
+            let authUserData=localStorage.getItem('authUser');
+            console.log(authUserData)
+            if(authUserData) {
+                const authUserObj=JSON.parse(authUserData);
+
+                let uNo=authUserObj.authUser.uNo;
+
+                if(uNo==1) {
+                    console.log("oh yeah success~~~~~~~~~~~~~~");
+                }else{
+                    console.log("shit")
+                }
+            }else{
+                console.log("fuck")
+            }
+        },
         getList(list) {
             console.log("리스트 불러오기");
 
@@ -170,6 +188,7 @@ export default {
     },
     created() {
         this.getList();
+        this.isAuthName();
     }
 };
 </script>

@@ -50,6 +50,7 @@ import AppFooter from '@/components/AppFooter.vue';
 import AppHeader from '@/components/AppHeader.vue';
 import '@/assets/css/notice/NoticeReadView.css';
 import axios from 'axios';
+import { mapState } from 'vuex';
 
 export default {
     name: "NoticeReadView",
@@ -67,6 +68,12 @@ export default {
                 content:""
             }
         };
+    },
+    computed: {
+        ...mapState(['authUser'])
+    },
+    mounted(){
+        console.log("yayaya "+this.authUser)
     },
     methods: {
         readOneNotice(){
