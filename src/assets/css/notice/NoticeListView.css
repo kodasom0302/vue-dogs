@@ -8,21 +8,15 @@
 /* 페이지 안내 제목
 공지사항 */
 #noticeTitle{
+    padding-top: 30px;
     margin-top: 10px;
     margin-left: 30px;
 }
 
-/* 위치 안내
-홈>공지사항 */
-#noticeLocationInformation{
-    margin-left: 35px;
-    margin-bottom: 30px;
-    display: flex;
-    list-style-type: none;
-    font-size: 15px;
-}
-#noticeLocationInformation li:last-child:before{
-    content: ">";
+/* 페이지 제목 제외 모든 콘텐츠
+전체~테이블 */
+#allNoticeListContent{
+    padding-top: 30px;
 }
 
 /* 리스트 상단
@@ -85,7 +79,7 @@
 
 /* 테이블 첫 번째 열 - 번호 */
 #firstTable{
-    width: 50px;
+    width: 80px;
     text-align: center;
 }
 

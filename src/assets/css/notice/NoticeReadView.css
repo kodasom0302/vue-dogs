@@ -1,6 +1,6 @@
 /* 전체 */
 #noticeReadContentAll{
-    padding: 20px 30px;
+    padding: 50px 30px;
     margin-left: auto;
     margin-right: auto;
     width: 1000px;
@@ -87,7 +87,7 @@
 
 /* 해당 글 내용 */
 #noticeReadContent{
-    padding: 0px 13px 10px 13px;
+    padding: 10px 13px 10px 13px;
     height: 300px;
     border-bottom: 1px solid #ddd;
     font-size: 15px;

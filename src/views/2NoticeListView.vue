@@ -9,12 +9,7 @@
 
             <h1 id="noticeTitle">공지사항</h1>
 
-            <ul id="noticeLocationInformation">
-                <li>홈</li>
-                <li>공지사항</li>
-            </ul>
-
-            <div>
+            <div id="allNoticeListContent">
 
                 <div id="topContentGroup">
 
