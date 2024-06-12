@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import NoticeListView from '../views/NoticeListView.vue'
-import NoticeReadView from '../views/NoticeReadView.vue'
+import NoticeListView from '../views/2NoticeListView.vue'
+import NoticeReadView from '../views/2NoticeReadView.vue'
 import NoticeWriteView from '../views/NoticeWriteView.vue'
-import NoticeModifyView from '../views/NoticeModifyView.vue'
+import NoticeModifyView from '../views/0NoticeModifyView.vue'
 
 const routes = [
   {

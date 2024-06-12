@@ -1,0 +1,101 @@
+/* 전체 */
+#modifyFormContentAll{
+    padding: 50px 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+
+
+
+/* 제목 */
+#noticeModifyTitle{
+    padding: 10px 13px 0px 13px;
+    margin-bottom: 1px;
+    width: 100%;
+    border-top: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 25px;
+    word-break: break-all;
+}
+
+/* 해당 글 정보 칸 밑에 줄 - 작성자~작성일 */
+#notModifyPart{
+    padding: 0px 13px 30px 13px;
+    margin-top: 1px;
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    line-height: 23px;
+    word-break: keep-all;  /*단어 기준으로 줄 바꿈*/
+}
+
+/* 작성자~실제 작성자 묶음 */
+#writerGroup{
+    float: left;
+}
+/* 작성자 */
+#keepWriter{
+    margin-right: 7px;
+    color: #333;
+    font-weight: 500;
+    vertical-align: middle;
+}
+/* 해당 글 작성자 */
+#keepRealWriter{
+    color: #777;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+/* 작성일~실제 작성일 묶음 */
+#dateGroup{
+    float: right;
+}
+/* 작성일 */
+#keepDate{
+    float: left;
+    margin-right: 7px;
+    color: #333;
+    font-weight: 500;
+    vertical-align: middle;
+}
+/* 해당 글 작성일 */
+#keepRealDate{
+    float: left;
+    color: #777;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+
+
+/* 해당 글 내용 */
+#noticeModifyContent{
+    padding: 10px 13px 10px 13px;
+    height: 300px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+    font-weight: normal;
+    vertical-align: middle;
+    overflow-y: auto;
+}
+
+#btnGroup{
+    margin-top: 20px;
+    vertical-align: middle;
+}
+/* 취소 버튼 */
+#cancelBtn{
+    padding: 7px 15px;
+    margin-right: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+/* 수정 버튼 */
+#modifyBtn{
+    padding: 7px 15px;
+    cursor: pointer;
+    text-align: center;
+}
